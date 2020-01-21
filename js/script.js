@@ -16,12 +16,14 @@
 
 var arrayNumeri = [];
 
-var i = 0;
-do{
-  var numeriCasuali = getRandomIntInclusive(1, 100);
-  arrayNumeri.push(numeriCasuali);
-  i++;
-}while(i < 5)
+// var i = 0;
+var arrayNumeri = [];
+while(arrayNumeri.length < 5){
+  var number = getRandomIntInclusive(1, 100);
+  if(arrayNumeri.includes(number) == false) {
+    arrayNumeri.push(number);
+  }
+}
 alert(arrayNumeri);
 console.log(arrayNumeri);
 
@@ -41,12 +43,14 @@ function promptResult (){
   var arrayResult = [];
   var listaNumeri = [];
   var i = 1;
-  while(i < 6){ //qui sarebbe piu corretto avere un while e controllare se i numeri inseriri sono diversi
+  while(i < 6){
     var result = parseInt(prompt('Inserisci il ' + i + ' numero'));
-    arrayResult.push(result);
+    if (arrayResult.includes(result) == false) {
+      arrayResult.push(result);
+    }
     i++;
   }
-  //faccio confronto
+
 
   var j = 0;
   while(j < arrayNumeri.length){
