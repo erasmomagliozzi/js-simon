@@ -15,7 +15,6 @@
 // ----------------------------------------------------------------------
 
 var arrayNumeri = [];
-var arrayResult = [];
 
 var i = 0;
 do{
@@ -27,8 +26,7 @@ alert(arrayNumeri);
 console.log(arrayNumeri);
 
 setTimeout(promptResult, 3000);
-var numeriUguali = corrispondenza();
-console.log(numeriUguali);
+
 
 
 
@@ -40,20 +38,24 @@ function getRandomIntInclusive(min, max) {
 }
 
 function promptResult (){
-  for(var i = 1; i < 6; i++){
+  var arrayResult = [];
+  var listaNumeri = [];
+  var i = 1;
+  while(i < 6){ //qui sarebbe piu corretto avere un while e controllare se i numeri inseriri sono diversi
     var result = parseInt(prompt('Inserisci il ' + i + ' numero'));
     arrayResult.push(result);
+    i++;
   }
-  console.log(arrayResult);
-  return result;
-}
+  //faccio confronto
 
-function corrispondenza(){
-  for(var j = 0; j < arrayNumeri.length; j++){
-    if(arrayNumeri[j] == arrayResult[j]){
-      console.log(arrayResult);
-    }else{
-      console.log("non c'è corrispondenza");
+  var j = 0;
+  while(j < arrayNumeri.length){
+      if(arrayResult[j] == arrayNumeri[j]){
+        listaNumeri.push(arrayResult[j]);
+      }
+      j++;
     }
-  }
+  alert('Hai indovinato ' + listaNumeri.length + ' numeri');
+  alert('I numeri che hai indovinato sono ' + listaNumeri);
+
 }
