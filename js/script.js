@@ -26,13 +26,9 @@ do{
 alert(arrayNumeri);
 console.log(arrayNumeri);
 
-setTimeout(promptResult(arrayResult), 3000);
-
-// if(arrayNumeri[i] == arrayResult[i]){
-//   console.log("c'è corrispondenza");
-// }else{
-//   console.log("non c'è corrispondenza");
-// }
+setTimeout(promptResult, 3000);
+var numeriUguali = corrispondenza();
+console.log(numeriUguali);
 
 
 
@@ -43,11 +39,21 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function promptResult (array){
+function promptResult (){
   for(var i = 1; i < 6; i++){
     var result = parseInt(prompt('Inserisci il ' + i + ' numero'));
-    array.push(result);
+    arrayResult.push(result);
   }
-  console.log(array);
+  console.log(arrayResult);
   return result;
+}
+
+function corrispondenza(){
+  for(var j = 0; j < arrayNumeri.length; j++){
+    if(arrayNumeri[j] == arrayResult[j]){
+      console.log(arrayResult);
+    }else{
+      console.log("non c'è corrispondenza");
+    }
+  }
 }
