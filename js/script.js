@@ -14,21 +14,25 @@
 // mostrare quanti numeri sono stati indovinati
 // ----------------------------------------------------------------------
 
-
-// for (var i = 0; i < 6; i++){
-//   var numeriCasuali = alert(getRandomIntInclusive(1, 100))
-// }
 var arrayNumeri = [];
-var i = 0;
+var arrayResult = [];
 
+var i = 0;
 do{
   var numeriCasuali = getRandomIntInclusive(1, 100);
   arrayNumeri.push(numeriCasuali);
   i++;
 }while(i < 5)
-
 alert(arrayNumeri);
 console.log(arrayNumeri);
+
+setTimeout(promptResult(arrayResult), 3000);
+
+// if(arrayNumeri[i] == arrayResult[i]){
+//   console.log("c'è corrispondenza");
+// }else{
+//   console.log("non c'è corrispondenza");
+// }
 
 
 
@@ -37,4 +41,13 @@ function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function promptResult (array){
+  for(var i = 1; i < 6; i++){
+    var result = parseInt(prompt('Inserisci il ' + i + ' numero'));
+    array.push(result);
+  }
+  console.log(array);
+  return result;
 }
